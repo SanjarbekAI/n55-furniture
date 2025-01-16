@@ -40,10 +40,17 @@
     <!-- Template CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reponsive.css' %}">
+
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body {% block body %}{% endblock %}>
-{% include 'layouts/header-base.html' %}
+{% url 'pages:home' as home_url %}
+{% if request.path == home_url %}
+    {% include 'layouts/header-home.html' %}
+{% else %}
+    {% include 'layouts/header-base.html' %}
+{% endif %}
 
 <!-- main content -->
 {% block content %}{% endblock %}
@@ -88,6 +95,8 @@
 
 <!-- Template JS -->
 <script src="{% static 'js/theme.js' %}"></script>
+
+{% block extra_js %}{% endblock %}
 </body>
 
 

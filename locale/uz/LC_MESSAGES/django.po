@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-16 15:29+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: app_blogs/models.py:11 app_blogs/models.py:28 app_blogs/models.py:60
+msgid "title"
+msgstr "sarlavha"
+
+#: app_blogs/models.py:16
+msgid "parent"
+msgstr "ona-ona"
+
+#: app_blogs/models.py:23
+msgid "blog category"
+msgstr "blog kategoriyasi"
+
+#: app_blogs/models.py:24
+msgid "blog categories"
+msgstr "blog kategoriyalari"
+
+#: app_blogs/models.py:34
+msgid "blog tag"
+msgstr "blog teg"
+
+#: app_blogs/models.py:35
+msgid "blog tags"
+msgstr "blog teglari"
+
+#: app_blogs/models.py:39
+msgid "first_name"
+msgstr "ism"
+
+#: app_blogs/models.py:40
+msgid "last_name"
+msgstr "familiya"
+
+#: app_blogs/models.py:41
+msgid "avatar"
+msgstr "rasm"
+
+#: app_blogs/models.py:54
+msgid "blog author"
+msgstr "blog muallifi"
+
+#: app_blogs/models.py:55
+msgid "blog authors"
+msgstr "blog mualliflari"
+
+#: app_blogs/models.py:59
+msgid "image"
+msgstr "rasm"
+
+#: app_blogs/models.py:61
+msgid "description"
+msgstr "tavsif"
+
+#: app_blogs/models.py:66
+msgid "author"
+msgstr "muallif"
+
+#: app_blogs/models.py:71
+msgid "categories"
+msgstr "kategoriyalar"
+
+#: app_blogs/models.py:77
+msgid "tags"
+msgstr "teglar"
+
+#: app_blogs/models.py:84 app_blogs/models.py:100
+msgid "blog"
+msgstr ""
+
+#: app_blogs/models.py:85
+msgid "blogs"
+msgstr "bloglar"
+
+#: app_blogs/models.py:89
+msgid "comment"
+msgstr "izoh"
+
+#: app_blogs/models.py:94
+msgid "user"
+msgstr "foydalanuvchi"
+
+#: app_blogs/models.py:107
+msgid "blog comment"
+msgstr "blog izohi"
+
+#: app_blogs/models.py:108
+msgid "blog comments"
+msgstr "blog izohlari"
+
+#: templates/blogs/blog-list.html:19
+msgid "Home"
+msgstr ""
+
+#: templates/blogs/blog-list.html:33
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: templates/blogs/blog-list.html:63 templates/blogs/blog-list.html:120
+msgid "Recent Posts"
+msgstr "So'ngi bloglar"
+
+#: templates/blogs/blog-list.html:73
+msgid "comments"
+msgstr "izohlar"
+
+#: templates/blogs/blog-list.html:82
+msgid "READ MORE"
+msgstr "Ko'proq"
+
+#: templates/blogs/blog-list.html:93
+msgid "Blog Tags"
+msgstr "Blog Teglari"
+
+#: templates/blogs/blog-list.html:133
+msgid "ago"
+msgstr "oldin"
+
+#: templates/blogs/blog-list.html:134
+msgid "Comments"
+msgstr "Izohlar"
+
+#: templates/layouts/header-base.html:243
+msgid "Settings"
+msgstr "Sozlamalar"
+
+#: templates/layouts/header-base.html:254
+msgid "My account"
+msgstr "Sahifam"
+
+#: templates/layouts/header-base.html:261
+msgid "Sign in"
+msgstr "Kirish"
+
+#: templates/layouts/header-base.html:268
+msgid "Register Account"
+msgstr "Ro'yxatdan o'tish"
+
+#: templates/layouts/header-base.html:275
+msgid "Checkout"
+msgstr "Chekout"
+
+#: templates/layouts/header-base.html:281
+msgid "My Wishlists"
+msgstr "Orzularim"
+
+#: templates/layouts/header-home.html:210
+msgid "Contact US"
+msgstr "Aloqa"
+
+#: templates/layouts/header-home.html:387
+msgid ""
+"\n"
+"                                            <div>MONEY BACK</div>\n"
+"                                            <div>GUARANTEED</div>\n"
+"                                        "
+msgstr ""
+"\n"
+"                                            <div>PUL</div>\n"
+"                                            <div>QAYTARILADI</div>\n"
+"                                        "
+
+#~ msgid "minutes ago"
+#~ msgstr "daqiqa oldin"
