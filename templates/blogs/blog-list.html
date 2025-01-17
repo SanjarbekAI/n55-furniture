@@ -42,7 +42,8 @@
                                                         <i class="zmdi zmdi-minus"></i>
                                                         <i class="zmdi zmdi-plus"></i>
                                                     </span>
-                                                            <a class="cateItem" href="?category={{ category.id }}">{{ category.title }}</a>
+                                                            <a class="cateItem"
+                                                               href="?category={{ category.id }}">{{ category.title }}</a>
                                                             <div class="subCategory collapse" id="{{ category.id }}"
                                                                  aria-expanded="true" role="status">
                                                                 {% for child in category.children.all %}
@@ -65,7 +66,7 @@
                                                 {% for recent_blog in recent_blogs %}
                                                     <div>
                                                         <div class="late-item first-child">
-                                                            <a href="blog-detail.html">
+                                                            <a href="{% url 'blogs:detail' pk=recent_blog.id %}">
                                                                 <p class="content-title">{{ recent_blog.title }}</p>
                                                             </a>
                                                             <span>
@@ -79,7 +80,7 @@
                                                             <p class="description">{{ recent_blog.description|slice:'50' }}
                                                             </p>
                                                             <p class="remove">
-                                                                <a href="blog-detail.html">{% trans 'READ MORE' %}</a>
+                                                                <a href="{% url 'blogs:detail' pk=recent_blog.id %}">{% trans 'READ MORE' %}</a>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -96,7 +97,8 @@
                                                 <ul class="listSidebarBlog list-unstyled">
                                                     {% for tag in tags %}
                                                         <li>
-                                                            <a href="?tag={{ tag.id }}" title="Show products matching tag Hot Trend">
+                                                            <a href="?tag={{ tag.id }}"
+                                                               title="Show products matching tag Hot Trend">
                                                                 {{ tag.title }}</a>
                                                         </li>
                                                     {% endfor %}
@@ -121,13 +123,13 @@
                                         {% for blog in blogs %}
                                             <div class="list-content row">
                                                 <div class="hover-after col-md-5 col-xs-12">
-                                                    <a href="blog-detail.html">
+                                                    <a href="{% url 'blogs:detail' pk=blog.id %}">
                                                         <img src="{{ blog.image.url }}" alt="img">
                                                     </a>
                                                 </div>
                                                 <div class="late-item col-md-7 col-xs-12">
                                                     <p class="content-title">
-                                                        <a href="blog-detail.html">{{ blog.title }}</a>
+                                                        <a href="{% url 'blogs:detail' pk=blog.id %}">{{ blog.title }}</a>
                                                     </p>
                                                     <p class="post-info">
                                                         <span>{{ blog.created_at|timesince }} {% trans 'ago' %}</span>
@@ -144,7 +146,7 @@
                                                     <p class="description">{{ blog.description|slice:'200' }}
                                                     </p>
                                                     <span class="view-more">
-                                                    <a href="blog-detail.html">view more</a>
+                                                    <a href="{% url 'blogs:detail' pk=blog.id %}">{% trans 'view more¬' %}</a>
                                                 </span>
                                                 </div>
                                             </div>
