@@ -7,6 +7,7 @@ from django.urls import path, include
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('blogs/', include('app_blogs.urls', namespace='blogs')),
+    path('products/', include('app_products.urls', namespace='products')),
     path('', include('app_pages.urls', namespace='pages')),
 )
 
