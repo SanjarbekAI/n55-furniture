@@ -23,7 +23,7 @@ class LoginForm(forms.Form):
             user = UserModel.objects.get(
                 Q(email=username_or_email) | Q(username=username_or_email)
             )
-        except UserModel.DoesNotExists:
+        except UserModel.DoesNotExist:
             raise forms.ValidationError("Username or password is invalid")
 
         credentials = {"username": user.username, "password": password}
@@ -34,3 +34,9 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("Username or password is invalid")
 
         return self.cleaned_data
+
+
+class AccountForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['first_name', 'last_name', 'email', 'username']
