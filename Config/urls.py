@@ -8,6 +8,8 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('blogs/', include('app_blogs.urls', namespace='blogs')),
     path('products/', include('app_products.urls', namespace='products')),
+    path('orders/', include('app_orders.urls', namespace='orders')),
+    path('users/', include('app_users.urls', namespace='users')),
     path('', include('app_pages.urls', namespace='pages')),
 )
 

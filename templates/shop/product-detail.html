@@ -204,9 +204,11 @@
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
                                                                     <img class="img-fluid image-cover"
-                                                                         src="{% static 'img/product/1.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/1.jpg' %}"
+                                                                         alt="img">
                                                                     <img class="img-fluid image-secondary"
-                                                                         src="{% static 'img/product/22.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/22.jpg' %}"
+                                                                         alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -238,9 +240,11 @@
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
                                                                     <img class="img-fluid image-cover"
-                                                                         src="{% static 'img/product/2.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/2.jpg' %}"
+                                                                         alt="img">
                                                                     <img class="img-fluid image-secondary"
-                                                                         src="{% static 'img/product/11.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/11.jpg' %}"
+                                                                         alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -272,9 +276,11 @@
                                                             <div class="thumbnail-container border">
                                                                 <a href="product-detail.html">
                                                                     <img class="img-fluid image-cover"
-                                                                         src="{% static 'img/product/3.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/3.jpg' %}"
+                                                                         alt="img">
                                                                     <img class="img-fluid image-secondary"
-                                                                         src="{% static 'img/product/14.jpg' %}" alt="img">
+                                                                         src="{% static 'img/product/14.jpg' %}"
+                                                                         alt="img">
                                                                 </a>
                                                             </div>
                                                             <div class="product-description">
@@ -374,45 +380,29 @@
                                                     <div class="page-content" id="content">
                                                         <div class="images-container">
                                                             <div class="js-qv-mask mask tab-content border">
-                                                                <div id="item1" class="tab-pane fade active in show">
-                                                                    <img src="{% static 'img/product/1.jpg' %}" alt="img">
-                                                                </div>
-                                                                <div id="item2" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/2.jpg' %}" alt="img">
-                                                                </div>
-                                                                <div id="item3" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/3.jpg' %}" alt="img">
-                                                                </div>
-                                                                <div id="item4" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/5.jpg' %}" alt="img">
-                                                                </div>
+                                                                {% for image in product.images.all %}
+                                                                    <div id="item{{ forloop.counter }}"
+                                                                         class="tab-pane fade {% if forloop.counter == 1 %}active in show{% endif %}">
+                                                                        <img src="{{ image.image.url }}" alt="img">
+                                                                    </div>
+                                                                {% endfor %}
                                                                 <div class="layer hidden-sm-down" data-toggle="modal"
                                                                      data-target="#product-modal">
                                                                     <i class="fa fa-expand"></i>
                                                                 </div>
                                                             </div>
                                                             <ul class="product-tab nav nav-tabs d-flex">
-                                                                <li class="active col">
-                                                                    <a href="#item1" data-toggle="tab"
-                                                                       aria-expanded="true" class="active show">
-                                                                        <img src="{% static 'img/product/1.jpg' %}" alt="img">
-                                                                    </a>
-                                                                </li>
-                                                                <li class="col">
-                                                                    <a href="#item2" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/2.jpg' %}" alt="img">
-                                                                    </a>
-                                                                </li>
-                                                                <li class="col">
-                                                                    <a href="#item3" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/3.jpg' %}" alt="img">
-                                                                    </a>
-                                                                </li>
-                                                                <li class="col">
-                                                                    <a href="#item4" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/5.jpg' %}" alt="img">
-                                                                    </a>
-                                                                </li>
+                                                                {% for image in product.images.all %}
+                                                                    <li class="col {% if forloop.counter == 1 %}active{% endif %}">
+                                                                        <a href="#item{{ forloop.counter }}"
+                                                                           data-toggle="tab"
+                                                                           aria-expanded="true"
+                                                                           {% if forloop.counter == 1 %}class="active show"{% endif %}>
+                                                                            <img src="{{ image.image.url }}"
+                                                                                 alt="img">
+                                                                        </a>
+                                                                    </li>
+                                                                {% endfor %}
                                                             </ul>
                                                             <div class="modal fade" id="product-modal" role="dialog">
                                                                 <div class="modal-dialog">
@@ -425,57 +415,26 @@
                                                                                     <div>
                                                                                         <div class="images-container">
                                                                                             <div class="js-qv-mask mask tab-content">
-                                                                                                <div id="modal-item1"
-                                                                                                     class="tab-pane fade active in show">
-                                                                                                    <img src="{% static 'img/product/1.jpg' %}"
-                                                                                                         alt="img">
-                                                                                                </div>
-                                                                                                <div id="modal-item2"
-                                                                                                     class="tab-pane fade">
-                                                                                                    <img src="{% static 'img/product/2.jpg' %}"
-                                                                                                         alt="img">
-                                                                                                </div>
-                                                                                                <div id="modal-item3"
-                                                                                                     class="tab-pane fade">
-                                                                                                    <img src="{% static 'img/product/3.jpg' %}"
-                                                                                                         alt="img">
-                                                                                                </div>
-                                                                                                <div id="modal-item4"
-                                                                                                     class="tab-pane fade">
-                                                                                                    <img src="{% static 'img/product/5.jpg' %}"
-                                                                                                         alt="img">
-                                                                                                </div>
+                                                                                                {% for image in product.images.all %}
+                                                                                                    <div id="modal-item{{ forloop.counter }}"
+                                                                                                         class="tab-pane fade {% if forloop.counter == 1 %}active in show{% endif %}">
+                                                                                                        <img src="{{ image.image.url }}"
+                                                                                                             alt="img">
+                                                                                                    </div>
+                                                                                                {% endfor %}
                                                                                             </div>
                                                                                             <ul class="product-tab nav nav-tabs">
-                                                                                                <li class="active">
-                                                                                                    <a href="#modal-item1"
-                                                                                                       data-toggle="tab"
-                                                                                                       class=" active show">
-                                                                                                        <img src="{% static 'img/product/1.jpg' %}"
-                                                                                                             alt="img">
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#modal-item2"
-                                                                                                       data-toggle="tab">
-                                                                                                        <img src="{% static 'img/product/2.jpg' %}"
-                                                                                                             alt="img">
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#modal-item3"
-                                                                                                       data-toggle="tab">
-                                                                                                        <img src="{% static 'img/product/3.jpg' %}"
-                                                                                                             alt="img">
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#modal-item4"
-                                                                                                       data-toggle="tab">
-                                                                                                        <img src="{% static 'img/product/5.jpg' %}"
-                                                                                                             alt="img">
-                                                                                                    </a>
-                                                                                                </li>
+                                                                                                {% for image in product.images.all %}
+                                                                                                    <li {% if forloop.counter == 1 %}class="active"{% endif %}>
+                                                                                                        <a
+                                                                                                                href="#modal-item{{ forloop.counter }}"
+                                                                                                                data-toggle="tab"
+                                                                                                                {% if forloop.counter == 1 %}class=" active show"{% endif %}>
+                                                                                                            <img src="{{ image.image.url }}"
+                                                                                                                 alt="img">
+                                                                                                        </a>
+                                                                                                    </li>
+                                                                                                {% endfor %}
                                                                                             </ul>
                                                                                         </div>
                                                                                     </div>
@@ -494,10 +453,18 @@
                                                             <span class="price">£150.00</span>
                                                             <span class="float-right">
                                                                 <span class="availb">Availability: </span>
-                                                                <span class="check">
+                                                                {% if product.in_stock %}
+                                                                    <span class="check">
                                                                     <i class="fa fa-check-square-o"
-                                                                       aria-hidden="true"></i>IN STOCK</span>
-                                                            </span>
+                                                                       aria-hidden="true"></i>IN STOCK
+                                                                </span>
+                                                                {% else %}
+                                                                    <span style="color: red" class="check">
+                                                                    <i
+                                                                       aria-hidden="true"></i>NOT IN STOCK
+                                                                </span>
+                                                                {% endif %}
+                                                        </span>
                                                         </div>
                                                         <p class="description">Proin gravida nibh vel velit auctor
                                                             aliquet. Aenean lorem quis bibendum
@@ -830,9 +797,11 @@
                                                                 <div class="thumbnail-container border border">
                                                                     <a href="product-detail.html">
                                                                         <img class="img-fluid image-cover"
-                                                                             src="{% static 'img/product/1.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/1.jpg' %}"
+                                                                             alt="img">
                                                                         <img class="img-fluid image-secondary"
-                                                                             src="{% static 'img/product/22.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/22.jpg' %}"
+                                                                             alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">
@@ -893,9 +862,11 @@
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
                                                                         <img class="img-fluid image-cover"
-                                                                             src="{% static 'img/product/2.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/2.jpg' %}"
+                                                                             alt="img">
                                                                         <img class="img-fluid image-secondary"
-                                                                             src="{% static 'img/product/11.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/11.jpg' %}"
+                                                                             alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">
@@ -956,9 +927,11 @@
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
                                                                         <img class="img-fluid image-cover"
-                                                                             src="{% static 'img/product/3.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/3.jpg' %}"
+                                                                             alt="img">
                                                                         <img class="img-fluid image-secondary"
-                                                                             src="{% static 'img/product/14.jpg' %}" alt="img">
+                                                                             src="{% static 'img/product/14.jpg' %}"
+                                                                             alt="img">
                                                                     </a>
                                                                     <div class="highlighted-informations">
                                                                         <div class="variant-links">

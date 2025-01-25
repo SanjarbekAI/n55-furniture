@@ -1,6 +1,8 @@
 {% load static %}
 {% load i18n %}
+{% load order_tags %}
 {% load my_tags %}
+
 <header>
     <!-- header left mobie -->
     <div class="header-mobile d-md-none">
@@ -46,6 +48,27 @@
                         <div class="cart-content">
                             <table>
                                 <tbody>
+                                <tr>
+                                    <td class="product-image">
+                                        <a href="../shop/product-detail.html">
+                                            <img src="{% static 'img/product/5.jpg' %}" alt="Product">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="product-name">
+                                            <a href="../shop/product-detail.html">Organic Strawberry Fruits</a>
+                                        </div>
+                                        <div>
+                                            2 x
+                                            <span class="product-price">£28.98</span>
+                                        </div>
+                                    </td>
+                                    <td class="action">
+                                        <a class="remove" href="#">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td class="product-image">
                                         <a href="../shop/product-detail.html">
@@ -129,7 +152,8 @@
                 <div class="col-sm-5 col-md-5 d-flex align-items-center justify-content-end" id="search_widget">
                     <form method="get" action="{% url 'products:list' %}">
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input  type="text" name="q" value="{{ request.GET.q }}" placeholder="Search" class="ui-autocomplete-input"
+                        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search"
+                               class="ui-autocomplete-input"
                                autocomplete="off">
                         <button type="submit">
                             <i class="fa fa-search"></i>
@@ -219,27 +243,30 @@
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                        <tr>
-                                            <td class="product-image">
-                                                <a href="../shop/product-detail.html">
-                                                    <img src="{% static 'img/product/5.jpg' %}" alt="Product">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="product-name">
-                                                    <a href="../shop/product-detail.html">Organic Strawberry Fruits</a>
-                                                </div>
-                                                <div>
-                                                    2 x
-                                                    <span class="product-price">£28.98</span>
-                                                </div>
-                                            </td>
-                                            <td class="action">
-                                                <a class="remove" href="#">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        {% get_user_cart request as products %}
+                                        {% for product in products %}
+                                            <tr>
+                                                <td class="product-image">
+                                                    <a href="../shop/product-detail.html">
+                                                        <img src="{{ product.image1.url }}" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="product-name">
+                                                        <a href="../shop/product-detail.html">{{ product.title|slice:'20' }}</a>
+                                                    </div>
+                                                    <div>
+                                                        2 x
+                                                        <span class="product-price">£28.98</span>
+                                                    </div>
+                                                </td>
+                                                <td class="action">
+                                                    <a class="remove" href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
                                         <tr class="total">
                                             <td colspan="2">Total:</td>
                                             <td>£92.96</td>

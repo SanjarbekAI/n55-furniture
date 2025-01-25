@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from app_products.models import *
 
@@ -64,5 +64,17 @@ class ProductListView(ListView):
         return result
 
 
-class ProductDetailView(TemplateView):
+class ProductDetailView(DetailView):
     template_name = 'shop/product-detail.html'
+    model = ProductModel
+    context_object_name = "product"
+
+    # def get_context_data(self, **kwargs):
+    #     pass
+    #
+    # def get_queryset(self):
+    #     pass
+    #
+    # def get_object(self, queryset=None):
+    #     pass
+
