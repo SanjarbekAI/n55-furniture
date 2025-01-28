@@ -164,7 +164,11 @@
                         <div class="myaccount-title ">
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>{% trans 'Settings' %}</span>
+                                {% if request.user.is_authenticated %}
+                                    <span>{% trans 'Settings' %}</span>
+                                {% else %}
+                                    <span>{% trans 'Account' %}</span>
+                                {% endif %}
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -261,7 +265,8 @@
                                                     </div>
                                                 </td>
                                                 <td class="action">
-                                                    <a class="remove" href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}">
+                                                    <a class="remove"
+                                                       href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
